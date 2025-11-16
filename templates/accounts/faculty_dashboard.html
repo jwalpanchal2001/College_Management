@@ -1,0 +1,32 @@
+{# templates/accounts/faculty_dashboard.html #}
+
+{% extends 'base.html' %}
+{% block title %}Faculty Dashboard{% endblock %}
+{% block content %}
+    <h1>Faculty Dashboard</h1>
+    <p>Welcome, Professor! Manage your courses and students here.</p>
+    <div class="row">
+        <!-- Existing Add Course Card -->
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header">Academic Management</div>
+                <div class="card-body">
+                    <h5 class="card-title">Manage Courses</h5>
+                    <p class="card-text">Add new courses to the system.</p>
+                    <a href="{% url 'add_course' %}" class="btn btn-primary">Add Course</a>
+                </div>
+            </div>
+        </div>
+        <!-- NEW MANAGE STUDENTS CARD -->
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header">Student Management</div>
+                <div class="card-body">
+                    <h5 class="card-title">Assign Courses to Students</h5>
+                    <p class="card-text">View all students and assign or update their enrolled course.</p>
+                    <a href="{% url 'faculty_manage_students' %}" class="btn btn-info">Manage Students</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

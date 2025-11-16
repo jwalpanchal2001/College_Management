@@ -1,0 +1,39 @@
+{# templates/accounts/faculty_list.html #}
+
+{% extends 'base.html' %}
+{% block title %}Course List{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Course List</h1>
+        <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            {% if facultiess %}
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Department</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for faculty in facultiess %}
+                        <tr>
+                            <td>{{ faculty.name }}</td>
+                            <td>{{ faculty.department }}</td>
+                            <td>{{ faculty.created_at }}</td>
+                            {% comment %} <td>{{ faculty.date_joined|date:"Y-m-d" }}</td> {% endcomment %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>There are no Course in the system.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
